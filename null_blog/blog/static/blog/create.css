@@ -1,0 +1,28 @@
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#form textarea {    
+    height: 150px;
+}
+
+#form input, #form textarea {
+    margin: 12px auto;
+    display: block;
+}
+
+#form input[type='text'], #form textarea {
+    width: 400px;
+}
+
+.submit {
+    cursor: pointer;
+    background-color: #2EAABB;
+    padding: 10px 22.5px;
+    /* margin-top: 20px; */
+}
+
+#form input[type='file'] {
+    margin: 20px auto;
+}

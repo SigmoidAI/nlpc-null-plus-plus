@@ -1,0 +1,52 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/error.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/profile.css' %}">
+{% endblock %}
+
+{% block body %}
+    {% include './nav.html' %}
+
+    <main>
+        <div id='user-info'>
+            <h2>{{ username }}</h2>
+            <p>Joined: {{ date_joined|date:"d M, Y" }}</p>
+            <form action='/profile/{{ id }}/delete/' method='POST'>
+                {% csrf_token %}
+                <input type="submit" value="Delete account" class='error'>
+            </form>
+        </div>
+        <div id='user-posts'>
+            <div id='user-posts-dropdown'>
+                <span>Your posts</span>
+                <span id='user-posts-dropdown-arrow'>&#x25BC;</span>
+            </div>
+            <div id='user-posts-dropdown-content' class='hidden'>
+                {% for post in posts %}
+                    <a href='/post/{{ post.id }}/'>
+                        <div class='post'>
+                            {% if post.image %}
+                                <div class='post-image'>
+                                    <img src='{{ post.image.url }}' />
+                                </div>
+                            {% endif %}
+                            <div class='post-content'>
+                                <h3 class='post-title'>{{ post.title }}</h3>
+                                <span class='post-meta'>{{ post.pub_date|date:"D d M, Y" }}</span>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+    {% include './footer.html' %}
+
+    <script src="{% static 'blog/profile.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,128 @@
+#post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#post-header {
+    position: relative;
+    width: 100%;
+}
+
+#post-delete {
+    position: absolute;
+    right: 7.5%;
+    top: 38px;
+}
+
+#post-delete input[type='submit'], .comment-delete-form input[type='submit'] {
+    cursor: pointer;
+    background: none;
+}
+
+#post-delete:hover {
+    opacity: .8;
+}
+
+.post-title {
+    font-size: 36px;
+    letter-spacing: 5%;
+    margin-bottom: 42px;
+    text-align: center;
+}
+
+#post-image {
+    max-height: 500px;
+    margin-bottom: 80px;
+}
+
+.post-p {
+    margin-bottom: 42px;
+}
+
+.post-p, #post-footer {
+    width: 50%;
+}
+
+#post-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+#comments-container {
+    margin-top: 80px;
+}
+
+#comments-container h3 {
+    font-weight: normal;
+}
+
+#no-comments {
+    font-size: 14px;
+    opacity: .75;
+    margin-left: 30px;
+}
+
+hr {
+    margin: 22.5px auto;
+}
+
+.comment {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 30px;
+    margin: 42px auto;
+}
+
+.comment-meta {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-author {
+    font-size: 16px;
+}
+
+.comment-date {
+    font-size: 12px;
+    opacity: .9;
+}
+
+.comment-delete {
+    cursor: pointer;
+    opacity: .9;
+    font-size: 12px;
+}
+
+.comment-delete:hover {
+    opacity: .75;
+}
+
+.comment p {
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 0 30px;
+}
+
+#comment-form {
+    margin: 42px 15px auto 15px;
+    display: flex;
+    align-items: center;
+}
+
+#comment-form input {
+    margin: auto 15px;
+}
+
+#comment-form textarea {
+    height: 50px;
+    width: 500px;
+    padding: 10px;
+}
+
+#comment-form .submit {
+    cursor: pointer;
+    background-color: #2EAABB;
+    padding: 10px 22.5px;
+}

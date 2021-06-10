@@ -1,0 +1,24 @@
+nav {
+    box-sizing: border-box;
+    max-width: 100vw;
+    width: 100%;
+    height: 76px;
+    padding: 20px 30px;
+    font-size: 12px;
+}
+
+#nav-username {
+    font-size: 14px;
+}
+
+nav ul {
+    float: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+}
+
+nav a:hover {
+    border-bottom: 1px solid var(--accent-color);
+}

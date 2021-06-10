@@ -1,0 +1,15 @@
+<nav>
+    {% if is_logged_in %}
+        <span id='nav-username'><a href='/profile/{{ user.id }}/'>{{ user.username }}</a></span>
+    {% endif %}
+    <ul>
+        <li><a href="/">Home</a></li>
+        {% if is_logged_in %}
+            <li><a href='/profile/{{ user.id }}/'>Profile</a></li>
+            <li><a href='/logout/'>Logout</a></li>
+        {% else %}
+            <li><a href='/signup/'>Signup</a></li>
+            <li><a href='/login/'>Login</a></li>
+        {% endif %}
+    </ul>
+</nav>

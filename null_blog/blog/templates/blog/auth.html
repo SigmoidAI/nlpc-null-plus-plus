@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/error.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/auth.css' %}">
+{% endblock %}
+
+{% block body %}
+    {% if error %}
+        {% include 'blog/error.html' with error=error %}
+    {% endif %}
+    
+    {% include './nav.html' %}
+
+    <main>
+        <div id="form-wrapper">
+            <div id='form-container'>
+                <h1>{{ auth_type|title }}</h1>
+    
+                {% if error %}
+                    <p id="form-error" class="error">{{ error }}</p>
+                {% endif %}
+    
+                <form action="/{{ auth_type }}/" method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Submit" class="submit">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    {% include './footer.html' %}
+{% endblock %}

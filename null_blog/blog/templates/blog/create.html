@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/error.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/create.css' %}">
+{% endblock %}
+
+{% block body %}
+    {% if error %}
+        {% include 'blog/error.html' with error=error %}
+    {% endif %}
+
+    {% include './nav.html' %}
+
+    <main>
+        <h2>Create a post</h2>
+    
+        <form action='/post/' method='POST' enctype='multipart/form-data' id='form'>
+            {% csrf_token %}
+            {{ form }}
+            <input type='submit' value='Submit' class='submit'>
+        </form>
+    </main>
+
+    {% include './footer.html' %}
+{% endblock %}
